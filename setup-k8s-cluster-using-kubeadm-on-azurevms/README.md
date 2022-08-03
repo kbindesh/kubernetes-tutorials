@@ -133,10 +133,10 @@ If you delete the resource group it will delete all the resources inside
 
 ```bash
 # Will ask for confirmation
-az group delete -n wriju
+az group delete -n rg-cka 
 
-# Anyc delete 
-az group delete -n wriju --no-wait 
+# Or 
+az group delete -n rg-cka --no-wait 
 
 ```
 
