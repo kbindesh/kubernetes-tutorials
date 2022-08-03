@@ -38,6 +38,8 @@ Install & Configure [as super user]
 - Docker
 - Kubectl, Kubeadm, Kubelet
 
+Prepare the VMs with k8s components [Script](automation-scripts/02-all-node-setup.sh)
+
 ### Step-03 Master Node
 
 Here is the script (03-master-setup.sh)
@@ -64,7 +66,7 @@ Using the token generated from previous step connect this to the Kubernetes mast
 
 > If you forget it then generate a new one by running `sudo kubeadm token create --print-join-command`
 
-Worker node setup [Script](script-aug21/04-worker-setup.sh)
+Worker node setup [Script](automation-scripts/04-worker-setup.sh)
 
 ### Step-05 Confirm the Setup
 
