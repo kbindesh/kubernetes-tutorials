@@ -18,13 +18,14 @@ Clone the metrics server from below GitHub repository and create a deployment.
 
 ```kubectl edit deployment.apps metrics-server -n kube-system```
 
-Now, go to specs section and add below three commands -> Save & Exit:
+Now, go to specs section and add below three commands:
 
 ```command:
         - /metrics-server
         - --kubelet-insecure-tls
         - --kubelet-preferred-address-types=InternalDNS,InternalIP,ExternalDNS,ExternalIP,Hostname```
 
+Save and exit from the manifest file.
 
 ### Step-03: Restart the kubelet service
 
