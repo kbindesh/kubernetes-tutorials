@@ -1,30 +1,35 @@
-# Monitor Kubernetes cluster (Kubeadm) with metrics-server
+# Monitor Kubernetes cluster (kubeadm) with metrics-server
 
 ![K8s](images/k8s-metrics-server.png)
 
 ## Consideration
 
-- We have Kubeadm cluster with one master node and atleast one worker node in ready state. To check the cluster state, run: 
-```kubectl get nodes" command```
+- We have Kubeadm cluster with one master node and atleast one worker node in ready state. 
+- To check the cluster state, run: 
+```kubectl get nodes```
 
 ### Step-01: Install the metrics-server on master node
 
-Clone the metrics server from below GitHub repository and create a deployment.
+Clone the metrics server from below GitHub repository and create a deployment.  
 (https://github.com/kubernetes-sigs/metrics-server/releases/tag/v0.3.7)
 
 ```kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.7/components.yaml```
+
+For getting the latest version of metrics-server, refer below link:  
+(https://github.com/kubernetes-sigs/metrics-server)  
 
 ### Step-02: Edit the metrics-server Deployment manifest file
 
 ```kubectl edit deployment.apps metrics-server -n kube-system```
 
-Now, go to specs section and add below three commands -> Save & Exit:
+Now, go to 'specs' section and add below three commands -> Save & Exit:
 
-```command:
-        - /metrics-server
-        - --kubelet-insecure-tls
-        - --kubelet-preferred-address-types=InternalDNS,InternalIP,ExternalDNS,ExternalIP,Hostname```
-
+  ```
+     command:
+       - /metrics-server
+       - --kubelet-insecure-tls
+       - --kubelet-preferred-address-types=InternalDNS,InternalIP,ExternalDNS,ExternalIP,Hostname
+   ```
 
 ### Step-03: Restart the kubelet service
 
