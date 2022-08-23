@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../demorepo"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../serverless_demo"
+		}
+	],
+	"settings": {}
+}
